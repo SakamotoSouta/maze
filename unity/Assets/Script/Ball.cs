@@ -10,6 +10,7 @@ public class Ball : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		// ボールが動かなくなる問題の解決処理
 		rigidbody.WakeUp ();
 	}
 }

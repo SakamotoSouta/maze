@@ -10,6 +10,7 @@ public class GravityController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		// キー入力のあった方向に重力を傾ける
 		Physics.gravity = 
 			Quaternion.AngleAxis (Input.GetAxis("Horizontal") * 60.0f, Vector3.forward) * 
 			Quaternion.AngleAxis (Input.GetAxis("Vertical") * -60.0f, Vector3.right) * 
