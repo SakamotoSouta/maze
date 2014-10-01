@@ -19,13 +19,14 @@ public class Goal : MonoBehaviour {
 	}
 
 	// トリガーにゲームオブジェクトが進入した時の処理
-	void OnTriggerEnter(Collider other){
+	IEnumerator OnTriggerEnter(Collider other){
 		if (other.gameObject.tag == "Ball") {
 			counter++;
 			if(cleared == false && counter == ballCount){
 				// クリア判定成立
 				cleared = true;
-				Debug.Log("Cleared!");
+				yield return new WaitForSeconds(2);
+				Application.LoadLevel("Title");
 			}
 		}
 	}

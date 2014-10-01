@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Trap : MonoBehaviour {
-
+	
 	// 触れた瞬間
 	void OnTriggerEnter(Collider other){
 		if (other.gameObject.tag == "Ball") {
@@ -13,7 +13,7 @@ public class Trap : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+
 	}
 	
 	// Update is called once per frame
