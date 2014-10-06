@@ -7,9 +7,13 @@ public class Goal : MonoBehaviour {
 	private int counter;		// ゴールに触れているボールのカウンター
 	private bool cleared;		//　クリアした
 	public GUIStyle labelStyle;		// フォント
+	public GameObject labelPrefab;
+	private GameObject label;
+	private GameObject parent;
 
 	// Use this for initialization
 	void Start () {
+		parent = GameObject.Find ("Panel");
 		ballCount = GameObject.FindGameObjectsWithTag("Ball").Length;
 	}
 	
@@ -25,6 +29,17 @@ public class Goal : MonoBehaviour {
 			if(cleared == false && counter == ballCount){
 				// クリア判定成立
 				cleared = true;
+				// クリアした時
+				if (cleared) {
+					// ラベルオブジェクトの生成
+					label = NGUITools.AddChild(parent, labelPrefab);
+					label.transform.localScale = new Vector3(50f, 50f, 0);
+					UIAnchor pos = label.GetComponent("UIAnchor") as UIAnchor;
+					pos.side = UIAnchor.Side.Center;
+					pos.pixelOffset = new Vector3(0f, 50f, 0f);
+					UILabel str = label.GetComponent("UILabel") as UILabel;
+					str.text = "CLEAR!!";
+				}// if
 				yield return new WaitForSeconds(2);
 				Application.LoadLevel("Title");
 			}
@@ -39,12 +54,4 @@ public class Goal : MonoBehaviour {
 		}
 	}
 
-	// GUI
-	void OnGUI(){
-		if (cleared) {
-			int sw = Screen.width;
-			int sh = Screen.height;
-			GUI.Label(new Rect(sw / 6, sh / 3 , sw * 2 / 3, sh / 3), "CLEARED!!", labelStyle);
-		}
-	}
 }

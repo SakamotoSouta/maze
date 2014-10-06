@@ -16,12 +16,4 @@ public class TitleScript : MonoBehaviour {
 		}
 	}
 
-	// OnGUI
-	void OnGUI(){
-		int sw = Screen.width;
-		int sh = Screen.height;
-
-		GUI.Label (new Rect (0, sh / 4, sw, sh / 4), "Test @ BALL MAZE", labelStyle);
-		GUI.Label (new Rect (0, sh / 2, sw, sh / 4), "Press ENTER", labelStyle);
-	}
 }
