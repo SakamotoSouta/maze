@@ -36,7 +36,7 @@ public class Goal : MonoBehaviour {
 					label.transform.localScale = new Vector3(50f, 50f, 0);
 					UIAnchor pos = label.GetComponent("UIAnchor") as UIAnchor;
 					pos.side = UIAnchor.Side.Center;
-					pos.pixelOffset = new Vector3(0f, 50f, 0f);
+					pos.pixelOffset = new Vector3(0f, 0f, 0f);
 					UILabel str = label.GetComponent("UILabel") as UILabel;
 					str.text = "CLEAR!!";
 				}// if
